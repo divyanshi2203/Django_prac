@@ -1,12 +1,9 @@
-<!DOCTYPE html>
-<html>
-<head>
-    <title>My First Page</title>
-</head>
-
-<body>
-    <h1>Hello World!</h1>
-    <p>This is my first HTML page.</p>
-</body>
-
-</html>
+{% extends "myapp/base.html" %}
+{% block body %}
+{%for item in item_list %}
+        Item_Name : {{item.item_name}}
+        <br>
+        <a href = "{% url 'myapp:details' item.id%}">Click here for details of {{item.item_name}}</a>
+        <br>
+{% endfor %}
+{% endblock  %}

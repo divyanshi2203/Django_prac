@@ -1,5 +1,6 @@
-<h1>This is detail view</h1>
-{%for item in item_list%}
-{{item.item_name}}-price {{item.item_price}}
-<br>
-{% endfor %}
+{% extends "myapp/base.html" %}
+    {% block body %}
+        <h1>This is the details for {{item.item_name}}</h1>
+        <h3>The price of {{item.item_name}} is {{item.item_price}}</h3>
+        <h3>The description of {{item.item_name}} is {{item.item_desc}}</h3>
+    {% endblock  %}
