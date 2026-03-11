@@ -1,9 +1,32 @@
 {% extends "myapp/base.html" %}
 {% block body %}
-{%for item in item_list %}
-        Item_Name : {{item.item_name}}
-        <br>
-        <a href = "{% url 'myapp:details' item.id%}">Click here for details of {{item.item_name}}</a>
-        <br>
-{% endfor %}
+        <div>
+        {%for item in item_list %}
+        <div class="m-10 flex w-1/2 mx-auto">
+                <div>
+                        <div>
+                                <img class="w-64 rounded-lg"src="{{item.item_image}}" alt="">
+                        </div>
+                        <div class="mx-16">
+                                <div class="font-bold">{{item.item_name}}</div>
+                                <div>{{item.item_desc}}</div>
+                                <div class="text-pink-700">${{item.item_price}}</div>
+                               
+                        </div>
+                </div>
+                <div>
+                        <a class="bg-pink-500 text-white font-bold px-4 py-2 rounded-md" href="{% url 'myapp:details' item.id%}">View Details</a>
+                </div>
+        </div>
+        {% endfor %}
+        </div>
 {% endblock  %}
+   <ul>
+        
+        <li>
+                <a href = "{% url 'myapp:details' item.id%}"></a>
+                        <img src="{{item.item_image}}" alt="">
+         {{item.item_name}}-> {{item.item_price}}-> {{item.item_desc}}
+
+</ul>
+
