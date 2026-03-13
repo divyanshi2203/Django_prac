@@ -9,7 +9,7 @@
             <div class="text-pink-700 font-bold text-2xl">${{item.item_price}}</div>
             <div>{{item.item_desc}}</div>
             <div>
-            <a class="bg-pink-400 px-4 py-3 rounded-md font-bold text-white" href="">Edit</a>
+            <a class="bg-pink-400 px-4 py-3 rounded-md font-bold text-white" href="{%url 'mypp:update_item' item.id%}">Edit</a>
             <a class="bg-pink-800 px-4 py-3 rounded-md font-bold text-white" href="">Delete</a>
             </div>
         </div>
