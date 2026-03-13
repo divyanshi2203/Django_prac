@@ -3,7 +3,7 @@ from django.http import HttpResponse
 from .models import Item
 from .forms import ItemForm
 
-def home(request):
+def index(request):
     item_list = Item.objects.all()
     context = {
         "item_list":item_list    
@@ -25,6 +25,18 @@ def create_item(request):
             form.save()
             return redirect('myapp:index')
       
+    context = {
+        'form':form
+    }
+    return render(request,'myapp/item-form.html',context)
+
+def update_item(request,id):
+    item=Item.objects.get(id=id)
+    form = ItemForm(request.POST or None, instance=item) 
+    if form.is_valid():
+        form.save() 
+        return redirect('myapp:index')
+
     context = {
         'form':form
     }
